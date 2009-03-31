@@ -8,25 +8,21 @@ end
 
 directory 'image'
 
-file '/tmp/ubuntu-cdrom' do
-  'hdiutil attach vendor/ubuntu-8.10-server-i386.iso'
-end
-
 task :clean do
   rm_rf 'image'
 end
 
-task :isolinux => ['image', '/tmp/ubuntu-cdrom'] do
+task :isolinux => 'image' do
   mkdir 'image/isolinux'
-  cp '/tmp/ubuntu-cdrom/isolinux/boot.cat', 'image/isolinux'
-  cp '/tmp/ubuntu-cdrom/isolinux/isolinux.bin', 'image/isolinux'
+  cp '/cdrom/isolinux/boot.cat',     'image/isolinux'
+  cp '/cdrom/isolinux/isolinux.bin', 'image/isolinux'
   cp 'config/isolinux/isolinux.cfg', 'image/isolinux'  
 end
 
-task :installer => ['image', '/tmp/ubuntu-cdrom'] do
+task :installer => 'image' do
   mkdir 'image/install'
-  cp '/tmp/ubuntu-cdrom/install/initrd.gz', 'image/install'
-  cp '/tmp/ubuntu-cdrom/install/vmlinuz', 'image/install'
+  cp '/cdrom/install/initrd.gz', 'image/install'
+  cp '/cdrom/install/vmlinuz', 'image/install'
 end
 
 task :preseed => 'image' do
