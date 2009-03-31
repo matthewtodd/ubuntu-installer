@@ -1,12 +1,12 @@
 Name: intrepid
 Method: http://tz.archive.ubuntu.com/ubuntu
-FilterList: ignore selections
+FilterList: install selections
 
 Name: intrepid-updates
 Method: http://tz.archive.ubuntu.com/ubuntu
-FilterList: ignore selections
+FilterList: install selections
 
 Name: intrepid-security
 Method: http://security.ubuntu.com/ubuntu
-FilterList: ignore selections
+FilterList: install selections
 
