@@ -1,0 +1,18 @@
+Codename: intrepid
+Suite: stable
+Architectures: i386
+Components: main restricted universe
+Update: intrepid
+
+Codename: intrepid-updates
+Suite: stable
+Architectures: i386
+omponents: main restricted universe
+Update: intrepid-updates
+
+Codename: intrepid-security
+Suite: stable
+Architectures: i386
+omponents: main restricted universe
+Update: intrepid-security
+
