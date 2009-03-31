@@ -1,0 +1,67 @@
+#### Contents of the preconfiguration file (for &releasename;)
+### Localization
+d-i debian-installer/locale string en_US
+d-i console-setup/ask_detect boolean false
+d-i console-setup/layoutcode string us
+
+### Network configuration
+d-i netcfg/choose_interface select auto
+d-i netcfg/get_hostname string ubuntu
+d-i netcfg/get_domain string
+
+### Mirror settings
+d-i mirror/country string manual
+d-i mirror/http/hostname string 10.0.1.3:4001
+d-i mirror/http/directory string /ubuntu
+d-i mirror/http/proxy string
+
+### Clock and time zone setup
+d-i clock-setup/utc boolean true
+d-i time/zone string Africa/Dar_es_Salaam
+d-i clock-setup/ntp boolean false
+
+### Partitioning
+d-i partman-auto/init_automatically_partition select biggest_free
+d-i partman-auto/method string regular
+d-i partman-auto/choose_recipe select atomic
+d-i partman/confirm_write_new_label boolean true
+d-i partman/choose_partition select finish
+d-i partman/confirm boolean true
+
+### Base system installation
+
+### Account setup
+d-i passwd/user-fullname string Developer
+d-i passwd/username string developer
+d-i passwd/user-password password secret
+d-i passwd/user-password-again password secret
+
+### Apt setup
+d-i apt-setup/restricted boolean true
+d-i apt-setup/universe boolean true
+d-i apt-setup/backports boolean false
+d-i apt-setup/use_mirror boolean false
+d-i apt-setup/services-select multiselect security
+d-i apt-setup/security_host string 10.0.1.3:4001
+d-i apt-setup/security_path string /ubuntu
+
+### Package selection
+tasksel tasksel/first multiselect standard
+d-i pkgsel/include string openssh-server
+d-i pkgsel/update-policy select none
+
+### Boot loader installation
+d-i grub-installer/only_debian boolean true
+d-i grub-installer/with_other_os boolean true
+
+### Finishing up the installation
+d-i finish-install/reboot_in_progress note
+# d-i debian-installer/exit/halt boolean true
+
+### X configuration
+
+### Preseeding other packages
+user-setup-udeb user-setup/encrypted-private boolean false
+
+#### Advanced options
+### Running custom commands during the installation
