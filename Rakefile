@@ -1,6 +1,8 @@
 namespace :packages do
   task :update do
-    sh 'reprepro -V --confdir config/packages --basedir packages update'
+    sh 'reprepro -V --confdir config/packages --basedir packages --noskipold update'
+    sh 'reprepro -V --confdir config/packages --basedir packages --noskipold export'
+    sh 'reprepro -V --confdir config/packages --basedir packages --noskipold createsymlinks'
   end
 end
 
