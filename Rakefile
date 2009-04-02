@@ -38,7 +38,15 @@ task :packages => 'image' do
   cp_r 'packages/pool', 'image'
 end
 
-task :iso => [:isolinux, :installer, :preseed, :packages] do
+task :ubuntu => 'image' do
+  Dir.chdir('image') { sh 'ln -s . ubuntu' }
+end
+
+task :disk => 'image' do
+  cp_r '/cdrom/.disk', 'image'
+end
+
+task :iso => [:isolinux, :installer, :preseed, :packages, :ubuntu, :disk] do
   sh <<-END.gsub(/\s+/, ' ').strip
     mkisofs \
       -boot-info-table \
