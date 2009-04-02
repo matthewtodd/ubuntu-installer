@@ -16,7 +16,9 @@ end
 task :isolinux => 'image' do
   mkdir 'image/isolinux'
   cp '/cdrom/isolinux/boot.cat',     'image/isolinux'
+  sh 'chown u+w image/isolinux/boot.cat'
   cp '/cdrom/isolinux/isolinux.bin', 'image/isolinux'
+  sh 'chown u+w image/isolinux/isolinux.bin'
   cp 'config/isolinux/isolinux.cfg', 'image/isolinux'  
 end
 
@@ -37,7 +39,7 @@ task :packages => 'image' do
 end
 
 task :iso => [:isolinux, :installer, :preseed, :packages] do
-  sh <<-END
+  sh <<-END.gsub(/\s+/, '').strip
     mkisofs \
       -boot-info-table \
       -boot-load-size 4 \
