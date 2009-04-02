@@ -1,6 +1,6 @@
 Name: intrepid
 Method: http://tz.archive.ubuntu.com/ubuntu
-FilterList: purge selections
+FilterList: purge selections selections.udeb
 
 Name: intrepid-updates
 Method: http://tz.archive.ubuntu.com/ubuntu
