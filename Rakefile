@@ -1,6 +1,6 @@
 namespace :packages do
   task :update do
-    sh 'reprepro --confdir config/packages --basedir work --outdir packages update'
+    sh 'reprepro --confdir config/packages --basedir packages update'
   end
 end
 
