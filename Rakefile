@@ -39,7 +39,7 @@ task :packages => 'image' do
 end
 
 task :iso => [:isolinux, :installer, :preseed, :packages] do
-  sh <<-END.gsub(/\s+/, '').strip
+  sh <<-END.gsub(/\s+/, ' ').strip
     mkisofs \
       -boot-info-table \
       -boot-load-size 4 \
