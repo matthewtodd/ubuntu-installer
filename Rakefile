@@ -1,6 +1,6 @@
 namespace :packages do
   task :update do
-    sh 'reprepro --confdir config/packages --outdir packages update'
+    sh 'reprepro --confdir config/packages --basedir work --outdir packages update'
   end
 end
 
@@ -9,7 +9,7 @@ end
 directory 'image'
 
 task :clean do
-  rm_rf 'image'
+  rm_rf 'image', 'ubuntu-8.10-server-i386-custom.iso'
 end
 
 task :isolinux => 'image' do
@@ -36,5 +36,19 @@ task :packages => 'image' do
 end
 
 task :iso => [:isolinux, :installer, :preseed, :packages] do
-  # use mkisofs
+  sh <<-END
+    mkisofs \
+      -boot-info-table \
+      -boot-load-size 4 \
+      -cache-inodes \
+      -eltorito-boot isolinux/isolinux.bin \
+      -eltorito-catalog isolinux/boot.cat \
+      -full-iso9660-filenames \
+      -joliet \
+      -no-emul-boot \
+      -output ubuntu-8.10-server-i386-custom.iso \
+      -rational-rock \
+      -volid "Ubuntu 8.10 Server (Custom)" \
+      image
+  END
 end
