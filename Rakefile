@@ -9,7 +9,8 @@ end
 directory 'image'
 
 task :clean do
-  rm_rf 'image', 'ubuntu-8.10-server-i386-custom.iso'
+  rm_rf 'image'
+  rm_rf 'ubuntu-8.10-server-i386-custom.iso'
 end
 
 task :isolinux => 'image' do
