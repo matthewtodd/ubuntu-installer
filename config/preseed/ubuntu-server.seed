@@ -33,6 +33,7 @@ d-i passwd/make-user boolean false
 
 ### Apt setup
 d-i apt-setup/use_mirror boolean false
+d-i apt-setup/services-select multiselect
 d-i apt-setup/local0/repository string file:/opt/local/var/lib/apt/packages intrepid main restricted universe
 d-i apt-setup/local0/source boolean false
 d-i debian-installer/allow_unauthenticated string true
