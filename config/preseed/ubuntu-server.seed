@@ -5,7 +5,9 @@ d-i console-setup/ask_detect boolean false
 d-i console-setup/layoutcode string us
 
 ### Network configuration
-d-i netcfg/disable_dhcp boolean true
+d-i netcfg/dhcp_timeout string 10
+d-i netcfg/dhcp_failed note
+d-i netcfg/dhcp_options select Configure network manually
 
 ### Mirror settings
 d-i mirror/country string TZ
