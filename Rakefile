@@ -38,6 +38,7 @@ end
 task :packages => 'image' do
   cp_r 'packages/dists', 'image'
   cp_r 'packages/pool', 'image'
+  sh 'find image/pool -type d -empty -delete'
 end
 
 task :ubuntu => 'image' do
