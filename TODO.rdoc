@@ -1,0 +1,20 @@
+== Soon
+include intrepid-updates and intrepid-security
+* uncomment lines in config/packages/distributions
+* run `rake packages:update`
+
+== Maybe
+signing packages:
+* reprepro
+* installer? -- could I put some pub key in config/disk?
+* system? -- is there an APT::Config line that would specify my key?
+
+use some ruby goodness to make stuff nicer:
+* auto-generate distributions file.
+* auto-generate updates file.
+* auto-generate selections (with dependencies) from simpler list of the real top-level packages I'm interested in.
+* parametrize interesting names, like the CD label and ISO filename.
+
+don't depend on having an Ubuntu CD on hand
+* get isolinux stuff from the "syslinux" package?
+* where would I get the installer kernel and initrd? (don't really want them in this repo, yes?)

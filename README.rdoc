@@ -1,0 +1,35 @@
+Builds a custom Ubuntu installer CD, tuned to my liking:
+
+* During installation, you only have to type the hostname and the root password. (And a little more if there's no dhcp on your network.) Everything else is preseeded.
+* After installation, openssh-server is running, and all of the packages on the CD have been copied into /opt/local/var/apt/packages, which has been configured as the sole source in /etc/apt/sources.list. (The packages included are those I find I need for my work, useful for setting up routers, file servers, and rails hosts.)
+
+My primary design goals were to have:
+
+* A quickly repeatable install, and
+* No network access necessary, either during the initial installation or once I'm setting up the system. (Because there's no bandwidth here in Tanzania.)
+
+== Prerequisites
+Assuming you're running on a system with apt, git, ruby and rake available, then the "special" tools you need can be had by:
+
+  apt-get install reprepro genisoimage
+
+At present, you should also have an standard Ubuntu 8.10 Server CD mounted at /cdrom. I know this is a little hinky.
+
+== Building
+  git clone git://github.com/matthewtodd/ubuntu-installer.git
+  cd ubuntu-installer
+  rake packages:update
+  rake iso
+
+== Tweaking
+If you'd like to add more packages to your CD, just drop another file in config/packages/selections formatted like so: (I've found the trailing newline to be important.)
+
+  <packagename><TAB>install<NEWLINE>*
+
+And then reference that new file in config/packages/distributions. You'll see where.
+
+Note that dependencies aren't resolved automatically, so you'll need to (LAME) look them up yourself and make sure they're included. I've been using the policy for myself of always explicitly mentioning any dependencies that aren't available in config/packages/selections/base, so that I have the freedom to mix and match selections in the future.
+
+You can see such a list (without installing anything) by typing
+
+  apt-get --simulate install <packagename>

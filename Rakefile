@@ -17,14 +17,14 @@ end
 
 task :isolinux => 'image' do
   mkdir 'image/isolinux'
-  
+
   cp '/cdrom/isolinux/boot.cat', 'image/isolinux'
   sh 'chmod u+w image/isolinux/boot.cat'
-  
+
   cp '/cdrom/isolinux/isolinux.bin', 'image/isolinux'
   sh 'chmod u+w image/isolinux/isolinux.bin'
-  
-  cp 'config/isolinux.cfg', 'image/isolinux'  
+
+  cp 'config/isolinux.cfg', 'image/isolinux'
 end
 
 task :installer => 'image' do
