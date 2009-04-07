@@ -1,3 +1,7 @@
+include intrepid-updates and intrepid-security
+. uncomment lines in config/packages/distributions
+. run `rake packages:update`
+
 signing packages:
 . reprepro
 . installer? -- could I put some pub key in config/disk?
