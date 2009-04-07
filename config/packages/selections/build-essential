@@ -1,0 +1,13 @@
+binutils	install
+build-essential	install
+dpkg-dev	install
+g++	install
+g++-4.3	install
+gcc	install
+gcc-4.3	install
+libc6-dev	install
+libgomp1	install
+libstdc++6-4.3-dev	install
+linux-libc-dev	install
+make	install
+patch	install

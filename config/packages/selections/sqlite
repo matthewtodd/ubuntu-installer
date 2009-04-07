@@ -1,0 +1,3 @@
+libsqlite3-0	install
+libsqlite3-dev	install
+sqlite3	install

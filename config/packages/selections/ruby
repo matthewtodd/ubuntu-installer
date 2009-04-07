@@ -1,0 +1,13 @@
+irb	install
+irb1.8	install
+libopenssl-ruby1.8	install
+libreadline-ruby1.8	install
+libruby1.8	install
+rdoc	install
+rdoc1.8	install
+ri	install
+ri1.8	install
+ruby	install
+ruby-dev	install
+ruby1.8	install
+ruby1.8-dev	install
