@@ -1,8 +1,8 @@
 namespace :packages do
   task :update do
-    sh 'reprepro -V --confdir config/packages --basedir packages --noskipold update'
-    sh 'reprepro -V --confdir config/packages --basedir packages --noskipold export'
-    sh 'reprepro -V --confdir config/packages --basedir packages --noskipold createsymlinks'
+    sh 'reprepro -V --confdir config/packages --basedir work --noskipold update'
+    sh 'reprepro -V --confdir config/packages --basedir work --noskipold export'
+    sh 'reprepro -V --confdir config/packages --basedir work --noskipold createsymlinks'
   end
 end
 
@@ -36,8 +36,8 @@ task :preseed => 'image' do
 end
 
 task :packages => 'image' do
-  cp_r 'packages/dists', 'image'
-  cp_r 'packages/pool', 'image'
+  cp_r 'work/dists', 'image'
+  cp_r 'work/pool', 'image'
   sh 'find image/pool -type d -empty -delete'
 end
 
