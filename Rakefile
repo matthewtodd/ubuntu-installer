@@ -17,11 +17,14 @@ end
 
 task :isolinux => 'image' do
   mkdir 'image/isolinux'
-  cp '/cdrom/isolinux/boot.cat',     'image/isolinux'
+  
+  cp '/cdrom/isolinux/boot.cat', 'image/isolinux'
   sh 'chmod u+w image/isolinux/boot.cat'
+  
   cp '/cdrom/isolinux/isolinux.bin', 'image/isolinux'
   sh 'chmod u+w image/isolinux/isolinux.bin'
-  cp 'config/isolinux/isolinux.cfg', 'image/isolinux'  
+  
+  cp 'config/isolinux.cfg', 'image/isolinux'  
 end
 
 task :installer => 'image' do
@@ -32,7 +35,7 @@ end
 
 task :preseed => 'image' do
   mkdir 'image/preseed'
-  cp 'config/preseed/ubuntu-server.seed', 'image/preseed'
+  cp 'config/ubuntu-server.seed', 'image/preseed'
 end
 
 task :packages => 'image' do
