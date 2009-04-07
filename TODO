@@ -1,0 +1,4 @@
+signing packages:
+. reprepro
+. installer? -- could I put some pub key in config/disk?
+. system? -- is there an APT::Config line that would specify my key?

@@ -49,7 +49,7 @@ task :ubuntu => 'image' do
 end
 
 task :disk => 'image' do
-  cp_r '/cdrom/.disk', 'image'
+  cp_r 'config/disk', 'image/.disk'
 end
 
 task :iso => [:isolinux, :installer, :preseed, :packages, :ubuntu, :disk] do
