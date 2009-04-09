@@ -58,4 +58,7 @@ user-setup-udeb user-setup/encrypted-private boolean false
 
 #### Advanced options
 ### Running custom commands during the installation
-d-i preseed/late_command string mkdir -p /target/opt/local/var/lib/apt/packages; cp -r /cdrom/dists /cdrom/pool /target/opt/local/var/lib/apt/packages; echo 'APT::Get::AllowUnauthenticated 1;' > /target/etc/apt/apt.conf.d/99allow_unauthenticated
+# This copies our packages into /opt, disables CD in sources.list (only
+# happens automatically given http & ftp sources; we just have file), 
+# and overrides requirement for signed packages
+d-i preseed/late_command string mkdir -p /target/opt/local/var/lib/apt/packages; cp -r /cdrom/dists /cdrom/pool /target/opt/local/var/lib/apt/packages; sed -i "/^deb cdrom:/s/^/#/" /target/etc/apt/sources.list; echo 'APT::Get::AllowUnauthenticated 1;' > /target/etc/apt/apt.conf.d/99allow_unauthenticated

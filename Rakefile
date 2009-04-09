@@ -36,7 +36,7 @@ end
 
 task :preseed => 'image' do
   mkdir 'image/preseed'
-  cp 'config/ubuntu-server.seed', 'image/preseed'
+  cp 'config/preseed.seed', 'image/preseed'
 end
 
 task :packages => 'image' do
@@ -49,8 +49,20 @@ task :ubuntu => 'image' do
   Dir.chdir('image') { sh 'ln -s . ubuntu' }
 end
 
+def write(path, *lines)
+  File.open(path, 'w') { |f| lines.each { |l| f.puts(l) } }
+end
+
 task :disk => 'image' do
-  cp_r 'config/disk', 'image/.disk'
+  mkdir 'image/.disk'
+
+  Dir.chdir('image/.disk') do
+    write 'base_components', 'main'
+    write 'base_installable'
+    write 'cd_type',         'full_cd/single'
+    write 'info',            'Ubuntu 8.10 Server (Custom)'
+    write 'udeb_include',    'netcfg', 'ethdetect', 'pcmcia-cs-udeb', 'wireless-tools-udeb'
+  end
 end
 
 task :iso => [:isolinux, :installer, :preseed, :packages, :ubuntu, :disk] do
