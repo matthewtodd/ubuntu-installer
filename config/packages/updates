@@ -1,11 +1,11 @@
 Name: intrepid
 Method: http://tz.archive.ubuntu.com/ubuntu
-FilterList: purge selections/installer selections/base selections/apache selections/build-essential selections/dhcp selections/dns selections/fetchmail selections/git selections/mysql selections/postfix selections/procmail selections/rsnapshot selections/ruby selections/samba selections/sqlite
+FilterList: purge selections/installer selections/base selections/apache selections/build-essential selections/dhcp selections/dns selections/dovecot selections/fetchmail selections/git selections/mysql selections/postfix selections/procmail selections/rsnapshot selections/ruby selections/samba selections/sqlite
 
 Name: intrepid-updates
 Method: http://tz.archive.ubuntu.com/ubuntu
-FilterList: purge selections/base selections/apache selections/build-essential selections/dhcp selections/dns selections/fetchmail selections/git selections/mysql selections/postfix selections/procmail selections/rsnapshot selections/ruby selections/samba selections/sqlite
+FilterList: purge selections/base selections/apache selections/build-essential selections/dhcp selections/dns selections/dovecot selections/fetchmail selections/git selections/mysql selections/postfix selections/procmail selections/rsnapshot selections/ruby selections/samba selections/sqlite
 
 Name: intrepid-security
 Method: http://security.ubuntu.com/ubuntu
-FilterList: purge selections/base selections/apache selections/build-essential selections/dhcp selections/dns selections/fetchmail selections/git selections/mysql selections/postfix selections/procmail selections/rsnapshot selections/ruby selections/samba selections/sqlite
+FilterList: purge selections/base selections/apache selections/build-essential selections/dhcp selections/dns selections/dovecot selections/fetchmail selections/git selections/mysql selections/postfix selections/procmail selections/rsnapshot selections/ruby selections/samba selections/sqlite

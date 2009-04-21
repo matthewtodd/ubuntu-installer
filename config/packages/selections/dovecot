@@ -1,0 +1,7 @@
+dovecot-common	install
+dovecot-pop3d	install
+libmysqlclient15off	install
+libpq5	install
+mysql-common	install
+openssl-blacklist	install
+ssl-cert	install
