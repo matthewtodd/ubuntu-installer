@@ -8,8 +8,8 @@ file 'config/packages/selections' => SELECTIONS do |task|
   end
 end
 
-namespace :packages => 'config/packages/selections' do
-  task :update do
+namespace :packages do
+  task :update => 'config/packages/selections' do
     sh 'reprepro -V --confdir config/packages --basedir work --noskipold update'
     sh 'reprepro -V --confdir config/packages --basedir work --noskipold export'
     sh 'reprepro -V --confdir config/packages --basedir work --noskipold createsymlinks'
