@@ -1,6 +1,0 @@
-libcups2	install
-libtalloc1	install
-libwbclient0	install
-samba	install
-samba-common	install
-update-inetd	install

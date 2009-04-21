@@ -1,3 +1,0 @@
-openssl-blacklist	install
-postfix	install
-ssl-cert	install

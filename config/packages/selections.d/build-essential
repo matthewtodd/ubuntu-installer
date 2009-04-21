@@ -1,0 +1,13 @@
+binutils
+build-essential
+dpkg-dev
+g++
+g++-4.3
+gcc
+gcc-4.3
+libc6-dev
+libgomp1
+libstdc++6-4.3-dev
+linux-libc-dev
+make
+patch

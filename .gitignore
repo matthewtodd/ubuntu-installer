@@ -1,3 +1,4 @@
+config/packages/selections
 *.iso
 image
 work

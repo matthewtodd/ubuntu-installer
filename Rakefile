@@ -1,4 +1,14 @@
-namespace :packages do
+SELECTIONS = FileList.new('config/packages/selections.d/*')
+
+file 'config/packages/selections' => SELECTIONS do |task|
+  selections = SELECTIONS.map { |file| File.readlines(file).map { |line| line.chomp } }.flatten.sort.uniq
+
+  File.open(task.name, 'w') do |result|
+    result.puts selections.map { |line| "#{line}\tinstall" }
+  end
+end
+
+namespace :packages => 'config/packages/selections' do
   task :update do
     sh 'reprepro -V --confdir config/packages --basedir work --noskipold update'
     sh 'reprepro -V --confdir config/packages --basedir work --noskipold export'
