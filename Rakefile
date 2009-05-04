@@ -19,6 +19,7 @@ namespace :packages do
     host = ENV['HOST'] || raise('Please specify a HOST.')
     sh "rsync --rsh=ssh --recursive --progress work/dists #{host}:/opt/local/var/lib/apt/packages"
     sh "rsync --rsh=ssh --recursive --progress --ignore-existing --prune-empty-dirs work/pool #{host}:/opt/local/var/lib/apt/packages"
+    sh "ssh #{host} apt-get update"
   end
 end
 
