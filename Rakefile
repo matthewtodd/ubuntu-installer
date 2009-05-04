@@ -14,6 +14,12 @@ namespace :packages do
     sh 'reprepro -V --confdir config/packages --basedir work --noskipold export'
     sh 'reprepro -V --confdir config/packages --basedir work --noskipold createsymlinks'
   end
+
+  task :push do
+    host = ENV['HOST'] || raise('Please specify a HOST.')
+    sh "rsync --rsh=ssh --recursive work/dists #{host}:/opt/local/var/lib/apt/packages/dists"
+    sh "rsync --rsh=ssh --recursive --ignore-existing --prune-empty-dirs work/pool #{host}:/opt/local/var/lib/apt/packages/pool"
+  end
 end
 
 
