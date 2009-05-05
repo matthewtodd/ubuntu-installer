@@ -6,13 +6,11 @@ UDebComponents: main
 Update: intrepid
 
 Codename: intrepid-updates
-Suite: stable
 Architectures: i386
 Components: main universe
 Update: intrepid-updates
 
 # Codename: intrepid-security
-# Suite: stable
 # Architectures: i386
 # Components: main universe
 # Update: intrepid-security
