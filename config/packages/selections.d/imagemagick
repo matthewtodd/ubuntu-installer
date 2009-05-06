@@ -1,6 +1,7 @@
 defoma
 fontconfig
 fontconfig-config
+gsfonts
 imagemagick
 libatk1.0-0
 libcairo2
